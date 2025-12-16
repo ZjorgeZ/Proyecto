@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Formulario de información</title>
+    <link rel="stylesheet" href="css/registro.css" />
+    <link rel="stylesheet" href="css/backgroud.css" />
+</head>
+<body>
+    <main>
+        <h1>Formulario de registro</h1>
+
+        <form action="#" method="post" aria-labelledby="form-title">
+            <input type="hidden" name="form-name" value="informacion">
+
+            <fieldset>
+                <legend id="form-title">Datos personales</legend>
+
+                <div>
+                    <label for="nombre">Nombre completo</label>
+                    <input id="nombre" name="nombre" type="text" required autocomplete="name" placeholder="Ej. Ana Pérez" />
+                </div>
+
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" placeholder="correo@ejemplo.com" />
+                </div>
+
+                <div>
+                    <label for="telefono">Teléfono</label>
+                    <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="+34 600 000 000" pattern="[\d+\-\s()]{7,}" />
+                </div>
+
+                <div>
+                    <label for="nacimiento">Fecha de nacimiento</label>
+                    <input id="nacimiento" name="nacimiento" type="date" autocomplete="bday" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferencias</legend>
+
+                <div>
+                    <span>Género</span>
+                    <div>
+                        <input id="genf" type="radio" name="genero" value="f" />
+                        <label for="genf">Femenino</label>
+
+                        <input id="genm" type="radio" name="genero" value="m" />
+                        <label for="genm">Masculino</label>
+
+                        <input id="genn" type="radio" name="genero" value="n" />
+                        <label for="genn">No binario / Prefiero no decir</label>
+                    </div>
+                </div>
+
+                <div>
+                    <span>Intereses</span>
+                    <div>
+                        <input id="int-tec" type="checkbox" name="intereses" value="tecnologia" />
+                        <label for="int-tec">Tecnología</label>
+
+                        <input id="int-dis" type="checkbox" name="intereses" value="diseno" />
+                        <label for="int-dis">Diseño</label>
+
+                        <input id="int-mkt" type="checkbox" name="intereses" value="marketing" />
+                        <label for="int-mkt">Marketing</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div>
+                <input id="acepto" name="acepto" type="checkbox" required />
+                <label for="acepto">Acepto la política de privacidad</label>
+            </div>
+
+            <div>
+                <button type="submit">Enviar</button>
+                <button type="reset">Restablecer</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

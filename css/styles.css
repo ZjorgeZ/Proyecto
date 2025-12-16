@@ -1,0 +1,321 @@
+
+/* styles.css */
+
+ h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin-bottom: 1rem;
+ }
+
+ h2, h3{
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+ }
+
+/* Glass card utility for content blocks */
+.glass{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px) saturate(120%);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    color: inherit;
+}
+
+
+/* Modern navigation styles for <nav class="main-nav"> */
+.main-nav{
+    margin-left: auto;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px) saturate(120%);
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(2,6,23,0.5);
+    position: relative;
+    z-index: 10;
+} 
+
+/* container for links */
+.main-nav ul{
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+}
+
+/* individual link */
+.main-nav a{
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms, color 180ms;
+    display: inline-block;
+}
+
+/* subtle lift + glow on hover/focus */
+.main-nav a:hover,
+.main-nav a:focus{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(14,158,216,0.06), 0 4px 12px rgba(144,48,255,0.03);
+    outline: none;
+}
+
+/* animated underline using gradient */
+.main-nav a::after{
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 6px;
+    height: 3px;
+    width: 0%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(14,158,216,0.95), rgba(144,48,255,0.95));
+    transition: width 320ms cubic-bezier(.2,.9,.2,1), opacity 180ms;
+    opacity: 0;
+}
+
+/* reveal underline on hover/focus */
+.main-nav a:hover::after,
+.main-nav a:focus::after{
+    width: 76%;
+    opacity: 1;
+}
+
+/* active/current page style */
+.main-nav a[aria-current="page"],
+.main-nav a.active{
+    color: #fff;
+    background: linear-gradient(90deg, rgba(14,158,216,0.08), rgba(144,48,255,0.06));
+    box-shadow: inset 0 -2px 6px rgba(0,0,0,0.15);
+}
+.main-nav a[aria-current="page"]::after,
+.main-nav a.active::after{
+    width: 84%;
+    opacity: 1;
+    bottom: 4px;
+}
+
+/* small-screen responsive toggle (optional markup: .main-nav .menu-toggle) */
+
+.main-nav .menu-toggle{
+    display: none;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    padding: 0.35rem;
+    border-radius: 8px;
+}
+@media (max-width: 740px){
+    .main-nav{
+        padding: 0.4rem;
+    }
+    .main-nav .menu-toggle{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .main-nav ul{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        gap: 0.35rem;
+        margin-top: 0.6rem;
+        padding: 0.6rem;
+        background: linear-gradient(180deg, rgba(11,36,64,0.9), rgba(7,16,36,0.85));
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 10px;
+        box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+        transform-origin: top right;
+        transform: scale(0.95);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 220ms, opacity 220ms;
+        min-width: 180px;
+    }
+    .main-nav.open ul{
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* keyboard focus visible */
+.main-nav a:focus-visible{
+    box-shadow: 0 8px 30px rgba(14,158,216,0.08);
+    outline: 2px solid rgba(14,158,216,0.16);
+    outline-offset: 2px;
+}
+
+
+
+/* Logo link styles for <a href="#inicio" class="logo-link"> */
+.logo-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    padding: 0.35rem 0.6rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms, color 180ms;
+}
+
+/* image or svg inside the logo */
+.logo-link img,
+.logo-link svg{
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+/* hover / focus interactions */
+.logo-link:hover,
+.logo-link:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(14,158,216,0.06);
+    outline: none;
+}
+
+/* active / current page state */
+.logo-link[aria-current="page"],
+.logo-link.active{
+    color: #fff;
+    background: linear-gradient(90deg, rgba(14,158,216,0.08), rgba(144,48,255,0.06));
+    box-shadow: inset 0 -2px 6px rgba(0,0,0,0.12);
+}
+
+/* keyboard accessibility */
+.logo-link:focus-visible{
+    outline: 2px solid rgba(14,158,216,0.16);
+    outline-offset: 2px;
+}
+
+/* responsive: hide text label on very small screens */
+@media (max-width: 540px){
+    .logo-link .brand-text{ display: none; }
+    .logo-link img,
+    .logo-link svg{ width: 30px; height: 30px; }
+}
+
+
+/* caja para .Info */
+.Info, .Info_2{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1.5rem auto;
+    max-width: 900px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+    backdrop-filter: blur(6px) saturate(120%);
+    color: inherit;
+}
+
+/* responsive: apilar en pantallas pequeñas */
+@media (max-width: 540px){
+    .Info, .Info_2{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem;
+        margin: 1rem;
+    }
+}
+    .Info h2, p{
+        margin: 3rem 1rem 2rem 1rem;
+        padding: 0 1rem;
+        text-align: left;
+    
+        margin: 2rem 0 1rem 0;
+        gap: 2rem;
+    }
+
+    /* Hace la imagen más pequeña y mantiene proporciones */
+    .Info img{
+        padding: 0 1rem;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 2rem;
+        display: block;
+        
+    }
+
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 540px){
+        .Info{
+            gap: 0.5rem;
+        }
+        .Info img{
+            width: 28px;
+            height: 28px;
+        }
+        .Info h2{
+            font-size: 1rem;
+        }
+    }
+
+    .Info img:hover,
+.Info img:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(14,158,216,0.06);
+    outline: none;
+}
+
+
+
+ /* Hace la imagen más pequeña y mantiene proporciones */
+    .Info_2 img{
+        padding: 0 1rem;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 2rem;
+        display: block;
+        
+    }
+
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 540px){
+        .Info_2{
+            gap: 0.5rem;
+        }
+        .Info_2 img{
+            width: 28px;
+            height: 28px;
+        }
+        .Info_2 h2{
+            font-size: 1rem;
+        }
+    }
+
+    .Info_2 img:hover,
+.Info_2 img:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(14,158,216,0.06);
+    outline: none;
+}

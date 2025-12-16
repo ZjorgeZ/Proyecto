@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Formulario de recursos</title>
+</head>
+<body>
+    <main>
+        <h1>Formulario de recursos</h1>
+
+        <form action="/guardar-recurso" method="post" enctype="multipart/form-data" aria-labelledby="form-title">
+            <fieldset>
+                <legend id="form-title">Detalles del recurso</legend>
+
+                <div>
+                    <label for="titulo">Título</label><br>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+
+                <div>
+                    <label for="descripcion">Descripción</label><br>
+                    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+                </div>
+
+                <div>
+                    <label for="tipo">Tipo</label><br>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">-- Seleccione --</option>
+                        <option value="documento">Documento</option>
+                        <option value="imagen">Imagen</option>
+                        <option value="video">Video</option>
+                        <option value="enlace">Enlace</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="categoria">Categoría</label><br>
+                    <select id="categoria" name="categoria">
+                        <option value="">-- Seleccione --</option>
+                        <option value="educacion">Educación</option>
+                        <option value="software">Software</option>
+                        <option value="multimedia">Multimedia</option>
+                        <option value="herramienta">Herramienta</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="archivo">Subir archivo</label><br>
+                    <input type="file" id="archivo" name="archivo">
+                </div>
+
+                <div>
+                    <label for="url">URL (si aplica)</label><br>
+                    <input type="url" id="url" name="url" placeholder="https://example.com">
+                </div>
+
+                <div>
+                    <label for="autor">Autor / Responsable</label><br>
+                    <input type="text" id="autor" name="autor">
+                </div>
+
+                <div>
+                    <label for="fecha">Fecha</label><br>
+                    <input type="date" id="fecha" name="fecha">
+                </div>
+
+                <div>
+                    <label for="cantidad">Cantidad</label><br>
+                    <input type="number" id="cantidad" name="cantidad" min="0" step="1">
+                </div>
+
+                <div>
+                    <label for="costo">Costo (opcional)</label><br>
+                    <input type="number" id="costo" name="costo" min="0" step="0.01" aria-describedby="moneda">
+                    <div id="moneda">Moneda en la unidad del sistema</div>
+                </div>
+
+                <div>
+                    <label for="licencia">Licencia</label><br>
+                    <input type="text" id="licencia" name="licencia" placeholder="Ej. CC BY-SA 4.0">
+                </div>
+
+                <div>
+                    <label for="tags">Etiquetas (separadas por comas)</label><br>
+                    <input type="text" id="tags" name="tags" placeholder="ej: tutorial, imagen, manual">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="publico" name="publico" value="1">
+                    <label for="publico">Hacer público</label>
+                </div>
+
+                <div>
+                    <label>Prioridad</label><br>
+                    <input type="radio" id="prio-baja" name="prioridad" value="baja" checked>
+                    <label for="prio-baja">Baja</label>
+                    <input type="radio" id="prio-media" name="prioridad" value="media">
+                    <label for="prio-media">Media</label>
+                    <input type="radio" id="prio-alta" name="prioridad" value="alta">
+                    <label for="prio-alta">Alta</label>
+                </div>
+
+                <div>
+                    <button type="submit">Guardar recurso</button>
+                    <button type="reset">Restablecer</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html></form>

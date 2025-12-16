@@ -1,0 +1,275 @@
+/* registro.css
+    Estilo moderno y responsivo para el formulario "informacion.htm"
+    (usa variables para fácil personalización)
+*/
+
+/* Variables de tema */
+:root{
+  --bg: #0f1724;
+  --card: rgba(255,255,255,0.04);
+  --glass: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  --accent: #7c5cff;
+  --accent-2: #00d4ff;
+  --muted: #a6b0bd;
+  --text: #e6eef8;
+  --success: #2ecc71;
+  --danger: #ff6b6b;
+  --radius: 12px;
+  --shadow: 0 8px 30px rgba(2,6,23,0.6);
+  --glass-border: rgba(255,255,255,0.06);
+  --sp: 14px;
+  font-size: 16px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.12), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(0,212,255,0.06), transparent),
+                  var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Contenedor del formulario */
+.form-card{
+  width:100%;
+  max-width:920px;
+  background: var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid var(--glass-border);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap:0;
+}
+
+/* Área lateral (imagen o resumen) */
+.form-side{
+  padding:28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:flex-start;
+}
+.form-side h2{
+  margin:0;
+  font-size:20px;
+  letter-spacing:-0.2px;
+  color:var(--text);
+}
+.form-side p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
+
+/* Formulario principal */
+.form-main{
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Grid para inputs */
+.form-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:14px;
+}
+@media (max-width:800px){
+  .form-card{grid-template-columns:1fr; padding:0}
+  .form-side{order:2}
+  .form-main{order:1}
+  .form-grid{grid-template-columns:1fr}
+}
+
+/* Input group con etiqueta flotante */
+.input-group{
+  position:relative;
+}
+.input{
+  width:100%;
+  padding:14px 12px 12px 12px;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);
+  outline:none;
+  transition:all .18s ease;
+  font-size:14px;
+  caret-color:var(--accent);
+  -webkit-appearance:none;
+}
+.input::placeholder{color:transparent} /* para activar floated label */
+.input:focus{
+  box-shadow: 0 6px 18px rgba(124,92,255,0.12);
+  border-color: linear-gradient(90deg,var(--accent),var(--accent-2));
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Floating label */
+.label{
+  position:absolute;
+  left:12px;
+  top:12px;
+  pointer-events:none;
+  font-size:13px;
+  color:var(--muted);
+  transition: all .16s ease;
+  background:transparent;
+  padding:0 6px;
+}
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label{
+  transform: translateY(-46%) scale(.92);
+  opacity:1;
+  color:var(--accent);
+  background:transparent;
+  top:6px;
+}
+
+/* Textarea */
+.textarea{
+  min-height:110px;
+  resize:vertical;
+  padding-top:18px;
+}
+
+/* Select personalizado */
+.select{
+  appearance:none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                          linear-gradient(135deg, var(--muted) 50%, transparent 50%),
+                          linear-gradient(to right, rgba(255,255,255,0.03), rgba(255,255,255,0.03));
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px), 100% 0;
+  background-size: 6px 6px, 6px 6px, 2.5em 100%;
+  background-repeat: no-repeat;
+}
+
+/* Checkbox / radio simples */
+.checkbox, .radio{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  cursor:pointer;
+  user-select:none;
+  color:var(--muted);
+  font-size:14px;
+}
+.checkbox input, .radio input{
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color:var(--accent);
+}
+
+/* Botones */
+.form-actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:flex-end;
+  margin-top:6px;
+}
+.btn{
+  padding:10px 16px;
+  border-radius:10px;
+  border:1px solid transparent;
+  cursor:pointer;
+  font-weight:600;
+  font-size:14px;
+  transition: all .14s ease;
+  background:transparent;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  box-shadow: 0 8px 24px rgba(124,92,255,0.18);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.btn-ghost{
+  color:var(--muted);
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+}
+
+/* Texto de ayuda / errores */
+.help-text{
+  font-size:13px;
+  color:var(--muted);
+}
+.error{
+  color:var(--danger);
+  font-size:13px;
+}
+.success{
+  color:var(--success);
+  font-size:13px;
+}
+
+/* Indicador de campo obligatorio */
+.required-dot{
+  color:var(--danger);
+  margin-left:6px;
+  font-weight:600;
+  font-size:13px;
+}
+
+/* Pequeños adornos */
+.hr{
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  margin:8px 0 4px;
+  border-radius:2px;
+}
+
+/* Validación con pseudo-clases */
+.input:invalid{
+  box-shadow: inset 0 0 0 1px rgba(255,107,107,0.12);
+  border-color: rgba(255,107,107,0.6);
+}
+.input:valid{
+  box-shadow: inset 0 0 0 1px rgba(46,204,113,0.06);
+}
+
+/* Pequeño avatar o logo */
+.form-brand{
+  width:56px;
+  height:56px;
+  border-radius:12px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(0,212,255,0.12));
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  font-weight:700;
+  font-size:18px;
+  border:1px solid rgba(255,255,255,0.04);
+}
+
+/* Micro-interacciones */
+.input, .btn{
+  transition: box-shadow .16s ease, transform .12s ease, border-color .12s ease;
+}
+
+/* Adaptación para impresión (simple) */
+@media print{
+  body{background:white;color:black}
+  .form-card{box-shadow:none;border:1px solid #ddd}
+}
