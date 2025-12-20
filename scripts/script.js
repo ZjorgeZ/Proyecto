@@ -12,7 +12,7 @@ document.getElementById('formulario-login').addEventListener('submit', function(
         mensaje.style.color = 'green';
         // Redirigir a index.htm después de una breve pausa para mostrar el mensaje
         setTimeout(() => {
-            window.location.href = 'index.htm';
+            window.location.href = 'page.htm';
         }, 800);
     } else {
         mensaje.textContent = 'Usuario o contraseña incorrectos.';
